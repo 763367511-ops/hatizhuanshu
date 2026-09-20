@@ -60,7 +60,7 @@ body{font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;background
 <div class="page-header">
   <div class="label">📖 点击单词即可朗读</div>
   <h1>哈提专属 单词朗读</h1>
-  <div class="sub">4个分类 · 共10个单词 · 点击朗读 · 慢速练习</div>
+  <div class="sub">4个分类 · 共11个单词 · 点击朗读 · 慢速练习</div>
 </div>
 <div class="search-wrap">
   <span class="search-icon">🔍</span>
@@ -88,7 +88,7 @@ body{font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;background
 </div>
 <script>
 const catMeta={"c0": {"label": "上", "color": "#2B6CB0", "bg": "#ebf4ff"}, "c1": {"label": "中上", "color": "#6B46C1", "bg": "#f0ebfa"}, "c2": {"label": "中下", "color": "#276749", "bg": "#e6f4ed"}, "c3": {"label": "下", "color": "#C05621", "bg": "#fdf0e6"}};
-const words={"c0": [{"word": "we", "ph": "/wiː/", "mn": "我们", "ic": "👫"}, {"word": "hi", "ph": "/haɪ/", "mn": "你好", "ic": "👋"}, {"word": "if", "ph": "/ɪf/", "mn": "如果", "ic": "🔀"}], "c1": [{"word": "we", "ph": "/wiː/", "mn": "我们", "ic": "👫"}, {"word": "gl", "ph": "/ˌdʒiː ˈel/", "mn": "好的（good luck的缩写）", "ic": "🍀"}], "c2": [{"word": "je", "ph": "/dʒiː/", "mn": "字母J的拼读", "ic": "🔤"}], "c3": [{"word": "iu", "ph": "", "mn": "", "ic": "📖"}, {"word": "wwmm", "ph": "", "mn": "", "ic": "📖"}, {"word": "wi", "ph": "", "mn": "", "ic": "📖"}, {"word": "ii", "ph": "", "mn": "", "ic": "📖"}]};
+const words={"c0": [{"word": "ea", "ph": "/ˌiːˈeɪ/", "mn": "每个", "ic": "📖"}, {"word": "we", "ph": "/wiː/", "mn": "我们", "ic": "👥"}, {"word": "hi", "ph": "/haɪ/", "mn": "你好", "ic": "👋"}, {"word": "if", "ph": "/ɪf/", "mn": "如果", "ic": "❓"}], "c1": [{"word": "we", "ph": "/wiː/", "mn": "我们", "ic": "👥"}, {"word": "ed", "ph": "/ˌiːˈdiː/", "mn": "教育", "ic": "📖"}], "c2": [{"word": "je", "ph": "/ˌdʒiːˈiː/", "mn": "日本英语", "ic": "📖"}], "c3": [{"word": "iu", "ph": "", "mn": "", "ic": "📖"}, {"word": "wwmm", "ph": "", "mn": "", "ic": "📖"}, {"word": "wi", "ph": "", "mn": "", "ic": "📖"}, {"word": "ii", "ph": "", "mn": "", "ic": "📖"}]};
 const anims=['animation:bounce 0.8s infinite','animation:spin 1s linear infinite','animation:pulse 0.7s infinite','animation:float 1.2s infinite','animation:shake 0.5s infinite','animation:wave 0.8s infinite','animation:swing 1s infinite'];
 let currentCat=Object.keys(catMeta)[0],currentWord=null,animTimer=null;
 function playWord(rate){if(!currentWord)return;const au=new Audio('https://dict.youdao.com/dictvoice?audio='+encodeURIComponent(currentWord.word)+'&type=1');au.playbackRate=rate;au.play().catch(()=>{if('speechSynthesis' in window){const u=new SpeechSynthesisUtterance(currentWord.word);u.lang='en-US';u.rate=rate;speechSynthesis.speak(u);}});}
